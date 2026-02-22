@@ -190,7 +190,8 @@ def test_special_characters_in_text():
     generator = ATSResumeGenerator(resume)
     txt = generator.generate_txt()
     
-    # Name is uppercased in the resume
+    # Name is uppercased in the resume, check both possible encodings
+    # (UTF-8 with accents or ASCII without)
     assert "JOSÉ GARCÍA" in txt.upper() or "JOSE GARCIA" in txt.upper()
     assert "AI/ML" in txt
 
